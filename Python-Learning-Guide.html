@@ -1,165 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Learning Guide</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #2e2e2e;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #1e1e1e;
-            padding: 1em;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: space-around;
-            background-color: #1e1e1e;
-            padding: 1em 0;
-        }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-        .container {
-            padding: 2em;
-        }
-        section {
-            margin-bottom: 2em;
-        }
-        .lesson {
-            background-color: #3e3e3e;
-            border-radius: 5px;
-            padding: 1em;
-            margin-bottom: 1em;
-        }
-        footer {
-            text-align: center;
-            padding: 1em 0;
-            background-color: #1e1e1e;
-        }
-        /* Flashcards */
-        .flashcard {
-            background-color: #666;
-            border-radius: 5px;
-            padding: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .flashcard:hover {
-            background-color: #777;
-        }
-    </style>
-    <script src="https://cdn.pyodide.org/en/stable/pyodide.js"></script>
-    <script>
-        async function runPythonCode() {
-            let pythonCode = document.getElementById('pythonCode').value;
-            let pyodide = await loadPyodide();
-            let result = await pyodide.runPython(pythonCode);
-            document.getElementById('output').innerText = result;
-        }
-        function trackProgress() {
-            // Example tracking for lessons
-            let progress = localStorage.getItem('progress') ? JSON.parse(localStorage.getItem('progress')) : {};
-            progress['exampleLesson'] = true;  // Mark example lesson as complete
-            localStorage.setItem('progress', JSON.stringify(progress));
-        }
-    </script>
-</head>
-<body>
-    <header>
-        <h1>Python Learning Guide</h1>
-    </header>
-    <nav>
-        <a href="#home">HOME</a>
-        <a href="#lessons">LESSONS</a>
-        <a href="#playground">PLAYGROUND</a>
-        <a href="#quizzes">QUIZZES</a>
-        <a href="#progress">PROGRESS</a>
-    </nav>
-    <div class="container">
-        <section id="home">
-            <h2>Welcome to Python Learning Guide</h2>
-            <p>This guide will take you through an interactive learning experience in Python.</p>
-        </section>
-        <section id="lessons">
-            <h2>Lessons</h2>
-            <div class="lesson">
-                <h3>Lesson 1: Variables and Data Types</h3>
-                <p>Learn about different data types in Python.</p>
-                <div class="flashcard">Flashcard: What is a variable?</div>
-            </div>
-            <div class="lesson">
-                <h3>Lesson 2: Control Flow</h3>
-                <p>Learn about if statements, loops, etc.</p>
-                <div class="flashcard">Flashcard: What is an if statement?</div>
-            </div>
-            <div class="lesson">
-                <h3>Lesson 3: Data Structures</h3>
-                <p>Learn about lists, tuples, and dictionaries.</p>
-                <div class="flashcard">Flashcard: What is a list?</div>
-            </div>
-            <div class="lesson">
-                <h3>Lesson 4: Functions</h3>
-                <p>Learn how to create and use functions.</p>
-                <div class="flashcard">Flashcard: What is a function?</div>
-            </div>
-            <div class="lesson">
-                <h3>Lesson 5: File Handling</h3>
-                <p>Understand how to read and write files.</p>
-                <div class="flashcard">Flashcard: How do you open a file?</div>
-            </div>
-            <div class="lesson">
-                <h3>Lesson 6: Error Handling</h3>
-                <p>Learn how to handle exceptions in Python.</p>
-                <div class="flashcard">Flashcard: What is an exception?</div>
-            </div>
-            <div class="lesson">
-                <h3>Lesson 7: Object-Oriented Programming</h3>
-                <p>Understand the concepts of OOP in Python.</p>
-                <div class="flashcard">Flashcard: What is a class?</div>
-            </div>
-            <div class="lesson">
-                <h3>Lesson 8: Web Development Basics</h3>
-                <p>Introduction to web development with Python.</p>
-                <div class="flashcard">Flashcard: What is Flask?</div>
-            </div>
-            <div class="lesson">
-                <h3>Lesson 9: Data Science Basics</h3>
-                <p>Learn the basics of data science using Python.</p>
-                <div class="flashcard">Flashcard: What is Pandas?</div>
-            </div>
-            <div class="lesson">
-                <h3>Lesson 10: Automation Scripts</h3>
-                <p>Learn how to write scripts to automate tasks.</p>
-                <div class="flashcard">Flashcard: What is automation?</div>
-            </div>
-        </section>
-        <section id="playground">
-            <h2>Code Playground</h2>
-            <textarea id="pythonCode" rows="10" cols="50"></textarea><br>
-            <button onclick="runPythonCode()">Run Code</button><br>
-            <h3>Output:</h3>
-            <pre id="output"></pre>
-        </section>
-        <section id="quizzes">
-            <h2>Quizzes</h2>
-            <p>Quizzes will be available soon!</p>
-        </section>
-        <section id="progress">
-            <h2>Progress Tracking</h2>
-            <p>Your progress will be tracked automatically.</p>
-            <button onclick="trackProgress()">Track Progress</button>
-        </section>
-    </div>
-    <footer>
-        <p>&copy; 2026 Python Learning Guide</p>
-    </footer>
-</body>
-</html>
+# Comprehensive Python Learning Course
+
+## Table of Contents
+1. [Introduction to Python](#introduction-to-python)
+2. [Data Types and Variables](#data-types-and-variables)
+3. [Control Structures](#control-structures)
+4. [Functions](#functions)
+5. [Modules and Packages](#modules-and-packages)
+6. [File Handling](#file-handling)
+7. [Error Handling](#error-handling)
+8. [Object-Oriented Programming](#object-oriented-programming)
+9. [Python Libraries and Frameworks](#python-libraries-and-frameworks)
+10. [Web Development with Python](#web-development-with-python)
+11. [Data Science with Python](#data-science-with-python)
+12. [Machine Learning](#machine-learning)
+13. [Extensions and Further Learning](#extensions-and-further-learning)
+
+## Introduction to Python
+In this section, you will learn about Python, its history, and its features. You'll also install Python and set up your environment.
+
+### Lesson 1: What is Python?
+... 
+
+## Data Types and Variables
+Here you will learn about different data types in Python, how to declare variables, and how to use them effectively.
+
+### Lesson 2: Understanding Data Types
+... 
+
+## Control Structures
+You will learn how to control the flow of your program using conditions and loops.
+
+### Lesson 3: If Statements
+...
+
+## Functions
+Functions are essential in modular programming. Here, you'll learn how to define and use them.
+
+### Lesson 4: Defining Functions
+...
+
+## Modules and Packages
+In this section, you will learn how to use and create modules and packages to organize your code better.
+
+### Lesson 5: Creating a Module
+...
+
+## File Handling
+Learn how to read from and write to files in Python, a critical skill for any programmer.
+
+### Lesson 6: Reading Files
+...
+
+## Error Handling
+Understand how to handle exceptions and prevent your programs from crashing.
+
+### Lesson 7: Exception Handling
+...
+
+## Object-Oriented Programming
+Learn about classes, objects, inheritance, and more in this crucial programming paradigm.
+
+### Lesson 8: Working with Classes
+...
+
+## Python Libraries and Frameworks
+Discover the powerful libraries and frameworks Python offers for various applications.
+
+### Lesson 9: Using Popular Libraries
+...
+
+## Web Development with Python
+Explore how to create web applications using Python frameworks like Flask and Django.
+
+### Lesson 10: Setting Up a Flask App
+...
+
+## Data Science with Python
+Learn how to use Python for data analysis and visualization.
+
+### Lesson 11: Data Analysis with Pandas
+...
+
+## Machine Learning
+An introduction to machine learning concepts and libraries in Python.
+
+### Lesson 12: Intro to Scikit-Learn
+...
+
+## Extensions and Further Learning
+Enhance your Python skills with advanced topics and resources for further learning.
+
+### Lesson 13: Advanced Python Features
+...
+
+## Interactive Features
+- **Flashcards**: Get important Python concepts flashcard-style for quick revision.
+- **Quizzes**: Try quizzes to test your knowledge after each lesson with immediate feedback.
+- **Code Playground**: Experiment with Python code directly in your browser.
+- **Progress Tracking**: Keep tabs on your learning journey; see what lessons you've completed.
+
+---
+### Additional Notes
+Ensure to practice regularly and utilize the interactive features to maximize your learning. Happy coding!
