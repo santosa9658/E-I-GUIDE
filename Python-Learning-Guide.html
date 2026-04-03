@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Learning Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2e2e2e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 1em;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #1e1e1e;
+            padding: 1em 0;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .container {
+            padding: 2em;
+        }
+        section {
+            margin-bottom: 2em;
+        }
+        .lesson {
+            background-color: #3e3e3e;
+            border-radius: 5px;
+            padding: 1em;
+            margin-bottom: 1em;
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #1e1e1e;
+        }
+        /* Flashcards */
+        .flashcard {
+            background-color: #666;
+            border-radius: 5px;
+            padding: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .flashcard:hover {
+            background-color: #777;
+        }
+    </style>
+    <script src="https://cdn.pyodide.org/en/stable/pyodide.js"></script>
+    <script>
+        async function runPythonCode() {
+            let pythonCode = document.getElementById('pythonCode').value;
+            let pyodide = await loadPyodide();
+            let result = await pyodide.runPython(pythonCode);
+            document.getElementById('output').innerText = result;
+        }
+        function trackProgress() {
+            // Example tracking for lessons
+            let progress = localStorage.getItem('progress') ? JSON.parse(localStorage.getItem('progress')) : {};
+            progress['exampleLesson'] = true;  // Mark example lesson as complete
+            localStorage.setItem('progress', JSON.stringify(progress));
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Python Learning Guide</h1>
+    </header>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#lessons">LESSONS</a>
+        <a href="#playground">PLAYGROUND</a>
+        <a href="#quizzes">QUIZZES</a>
+        <a href="#progress">PROGRESS</a>
+    </nav>
+    <div class="container">
+        <section id="home">
+            <h2>Welcome to Python Learning Guide</h2>
+            <p>This guide will take you through an interactive learning experience in Python.</p>
+        </section>
+        <section id="lessons">
+            <h2>Lessons</h2>
+            <div class="lesson">
+                <h3>Lesson 1: Variables and Data Types</h3>
+                <p>Learn about different data types in Python.</p>
+                <div class="flashcard">Flashcard: What is a variable?</div>
+            </div>
+            <div class="lesson">
+                <h3>Lesson 2: Control Flow</h3>
+                <p>Learn about if statements, loops, etc.</p>
+                <div class="flashcard">Flashcard: What is an if statement?</div>
+            </div>
+            <div class="lesson">
+                <h3>Lesson 3: Data Structures</h3>
+                <p>Learn about lists, tuples, and dictionaries.</p>
+                <div class="flashcard">Flashcard: What is a list?</div>
+            </div>
+            <div class="lesson">
+                <h3>Lesson 4: Functions</h3>
+                <p>Learn how to create and use functions.</p>
+                <div class="flashcard">Flashcard: What is a function?</div>
+            </div>
+            <div class="lesson">
+                <h3>Lesson 5: File Handling</h3>
+                <p>Understand how to read and write files.</p>
+                <div class="flashcard">Flashcard: How do you open a file?</div>
+            </div>
+            <div class="lesson">
+                <h3>Lesson 6: Error Handling</h3>
+                <p>Learn how to handle exceptions in Python.</p>
+                <div class="flashcard">Flashcard: What is an exception?</div>
+            </div>
+            <div class="lesson">
+                <h3>Lesson 7: Object-Oriented Programming</h3>
+                <p>Understand the concepts of OOP in Python.</p>
+                <div class="flashcard">Flashcard: What is a class?</div>
+            </div>
+            <div class="lesson">
+                <h3>Lesson 8: Web Development Basics</h3>
+                <p>Introduction to web development with Python.</p>
+                <div class="flashcard">Flashcard: What is Flask?</div>
+            </div>
+            <div class="lesson">
+                <h3>Lesson 9: Data Science Basics</h3>
+                <p>Learn the basics of data science using Python.</p>
+                <div class="flashcard">Flashcard: What is Pandas?</div>
+            </div>
+            <div class="lesson">
+                <h3>Lesson 10: Automation Scripts</h3>
+                <p>Learn how to write scripts to automate tasks.</p>
+                <div class="flashcard">Flashcard: What is automation?</div>
+            </div>
+        </section>
+        <section id="playground">
+            <h2>Code Playground</h2>
+            <textarea id="pythonCode" rows="10" cols="50"></textarea><br>
+            <button onclick="runPythonCode()">Run Code</button><br>
+            <h3>Output:</h3>
+            <pre id="output"></pre>
+        </section>
+        <section id="quizzes">
+            <h2>Quizzes</h2>
+            <p>Quizzes will be available soon!</p>
+        </section>
+        <section id="progress">
+            <h2>Progress Tracking</h2>
+            <p>Your progress will be tracked automatically.</p>
+            <button onclick="trackProgress()">Track Progress</button>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2026 Python Learning Guide</p>
+    </footer>
+</body>
+</html>
